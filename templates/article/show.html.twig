@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mx-auto p-8">
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">{{ article.title }}</h1>
+
+            <p class="text-gray-600 mb-6">
+                {{ article.text }}
+            </p>
+
+            <div class="text-sm text-gray-500 mb-4">
+                <span>Date de création: {{ article.createAt|date('d/m/Y') }}</span>
+            </div>
+
+            <div class="mt-8 flex space-x-4">
+                <a href="{{ path('article') }}" class="bg-gray-500 text-white font-bold py-2 px-4 rounded hover:bg-gray-600">
+                    Retour à la liste des articles
+                </a>
+                <a href="{{ path('article.edit', {'id': article.id}) }}" class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600">
+                    Modifier l'article
+                </a>
+                <a href="{{ path('article.delete', {'id': article.id}) }}" class="bg-red-500 text-white font-bold py-2 px-4 rounded hover:bg-red-600" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?');">
+                    Supprimer l'article
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

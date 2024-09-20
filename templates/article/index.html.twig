@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mx-auto p-4">
+        <h1 class="text-2xl font-bold mb-6 text-gray-800">Liste des articles</h1>
+
+        <ul class="space-y-4">
+            {% for article in articles %}
+                <a href="{{ path('article.show', {'id': article.id}) }}">
+                <li class="bg-white shadow rounded-lg p-6">
+                    <h2 class="text-lg font-semibold text-blue-600">{{ article.title }}</h2>
+                    <p class="text-gray-700 mt-2">{{ article.text }}</p>
+                </li>
+                </a>
+            {% else %}
+                <li class="text-gray-500">Aucun article trouvé.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

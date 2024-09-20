@@ -1,0 +1,5 @@
+{% for type, message in app.flashes %}
+  <div class="bg-{{ type }}-500 text-white px-4 py-3 rounded relative" role="alert">
+    {{ message | join('. ') }}
+  </div>
+{% endfor %}
